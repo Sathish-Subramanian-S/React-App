@@ -20,7 +20,7 @@ td {
 	
 	
 
-.flip-card {height:350px;width: 350px;perspective: 1000px;background-color: white;color: black;margin-top: 10px;margin-left: 10px;margin-bottom: 10px;margin-right: 10px;}
+.flip-card {height:350px;width: 350px;perspective: 1000px;background-color: white;color: black;margin-top: 10px;margin-left: 450px;margin-bottom: 10px;margin-right: 10px;}
 
 .flip-card-inner {
   position: relative;
@@ -183,7 +183,7 @@ error{
 
 table {
   border-collapse: collapse;
-    width: 100%;
+    width: 25%;
 }
 
 td {
@@ -203,4 +203,3 @@ p {
 hr{
   text-align: center;
 }
-

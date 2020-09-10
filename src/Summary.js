@@ -1,64 +1,41 @@
-import React, { Component } from 'react';
+import React, { Component, useState, useEffect } from 'react';
 import './Summary.css';
+import axios from "axios";
+import Claim from "./Claim";
 
 const Summary = () => {
 
+  const [claims, setClaims] = useState([]);
 
-    return (
+  useEffect(() => {
+    axios
+      .get("http://localhost:8080/api/products")
+      .then((response) => response.data)
+      .then((claims) => {
+        console.log(claims);
+        setClaims(claims);
+      });
+  }, []);
 
-<div>
-<div>
-   <table>
-      <tr>
-         <div>
-            <td>
-               <div class="flip-card">
-                  <div class="flip-card-inner">
-                     <header class="flip-card-header">Claim Summary</header>
-                     <div>&nbsp;</div>
-                     <div class="margin-div">
-                        <div class="div-left"><label>Employee Id:</label></div>
-                        <div class="label-value">861309</div>
-                     </div>
-                     <div class="margin-div">
-                        <div class="div-left"><label>Employee Name:</label></div>
-                        <div class="label-value">Sathish S</div>
-                     </div>
-                     <div class="margin-div">
-                        <div class="div-left"><label>Claim Number:</label></div>
-                        <div class="label-value">123-456-789</div>
-                     </div>
-                     <div class="margin-div">
-                        <div class="div-left"><label>Claim Type:</label></div>
-                        <div class="label-value">Submitted</div>
-                     </div>
-                      <div class="margin-div">
-                        <div class="div-left"><label>Claim Program:</label></div>
-                        <div class="label-value">Family Care Leave (80 Hours),Federal FML (30 Hours)</div>
-                     </div>
-                      <div class="margin-div">
-                        <div class="div-left"><label>Claim Start Date:</label></div>
-                        <div class="label-value">01/01/2018</div>
-                     </div>
-                     <div class="margin-div">
-                        <div class="div-left"><label>Claim End Date:</label></div>
-                        <div class="label-value">31/12/2021</div>
-                     </div>
-                     <div>&nbsp;</div>
-                     <div>
-                        <div></div>
-                        <div class="div-right"><a href="/updateClaimSummary">Update Claim Details</a></div>
-                     </div>
-                  </div>
-               </div>
-            </td>
-         </div>
-      </tr>
-   </table>
-</div>
-</div>
+  let renderClaims = () => {
+    return claims.map((claim, idx) => {
+      if (claim.claimNumber != null && claim.claimNumber == '123-456-789') {
+        return (
+          <Claim key={idx} claim={claim} />
+        );
+      }
+    });
+  };
 
-    );
+
+  return (
+    <div>
+      <div>
+        {renderClaims()}
+      </div>
+    </div>
+
+  );
 
 };
 export default Summary; 

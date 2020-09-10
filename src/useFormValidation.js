@@ -1,69 +1,96 @@
-import React,{useState,useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import formValidation from './formUpdationValidation';
 import axios from "axios";
-
+import { Router } from 'react-router-dom';
 
 const useFormValidation = (validate) => {
 
-const[userData,setUser]=useState({
+    const [userData, setUser] = useState({
         userName: '',
         password: ''
-})
+    })
 
-// const{} = formValidation(userData)
 
-const[updatedUserData,setUpdatedUser]=useState({
-    claimNumber: '',
-    claimType: '',
-    claimPrograms: '',
-    startDate: '',
-    endDate: '',
-    empName: '',
-    empId: ''
-})
-  
-    const[isSubmited,setIsSubmitted]=useState(false);
-    const[errors,setErrors]=useState({});
-    const[formErrors,setFormErrors]=useState({});
+    const [updatedUserData, setUpdatedUser] = useState({
+        claimNumber: '',
+        claimType: '',
+        claimPrograms: '',
+        startDate: '',
+        endDate: '',
+        empName: '',
+        empId: ''
+    })
+
+    const [isSubmited, setIsSubmitted] = useState(false);
+    const [errors, setErrors] = useState({});
+    const [claims, setClaims] = useState([]);
+    const [claim, setClaim] = useState({
+        claimNumber: '',
+        claimType: '',
+        claimPrograms: '',
+        startDate: '',
+        endDate: '',
+        empName: '',
+        empId: ''
+    });
+    const [formErrors, setFormErrors] = useState({});
+
     const handleChange = (e) => {
-        const {id,value}=e.target;
+        const { id, value } = e.target;
         setUser({
             ...userData,
-            [id]:value
+            [id]: value
         })
     }
 
     const handleFormChange = (e) => {
-        const {id,value}=e.target;
+        const { id, value } = e.target;
         setUpdatedUser({
             ...updatedUserData,
-            [id]:value
+            [id]: value
+        })
+    }
+
+    const handleClaimChange = (e) => {
+        const { id, value } = e.target;
+        setClaim({
+            ...claim,
+            [id]: value
         })
     }
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        // validations
         setErrors(validate(userData));
-        // setIsSubmitted(true);
-       }
+    }
 
-       const handleFormSubmit = (e) => {
+    const handleFormSubmit = (e) => {
         e.preventDefault();
         // validations
-        setErrors(validate(updatedUserData));
-        axios.post("http://localhost:8080/api/claims", updatedUserData);
-       }
+        let updationFlag = false;
+        setErrors(validate(claim));
+        if (Object.keys(errors).length === 0) {
+            axios.post("http://localhost:8080/api/products", claim);
+            updationFlag = true;
+        }
+    }
 
     useEffect(() => {
-        console.log(">>> useEffect");
-        if(Object.keys(errors).length===0 && isSubmited){
-            // business logic to persist object into db
-            // submitForm();
-        }  
-    },[errors])
+        axios
+            .get("http://localhost:8080/api/products")
+            .then((response) => response.data)
+            .then((claims) => {
 
-  return{handleChange,handleFormSubmit,handleSubmit,errors,userData,handleFormChange}
+                setClaims(claims);
+                claims.map((claim, idx) => {
+                    if (claim.claimNumber != null && claim.claimNumber == '123-456-789') {
+                        setClaim(claim);
+                    }
+                });
+            });
+    }, []);
+
+    return { handleChange, handleFormSubmit, handleSubmit, errors, userData, claim, handleFormChange, handleClaimChange }
 };
 
 export default useFormValidation;
