@@ -3,12 +3,9 @@ import './Summary.css';
 import useFormValidation from './useFormValidation';
 import formValidation from './formUpdationValidation';
 
-
 const UpdatePage = () => {
 
-    const { errors, handleSubmit, handleFormChange, handleFormSubmit, handleChange, claim, handleClaimChange } = useFormValidation(formValidation);
-
-
+    const { errors, handleFormSubmit, claim, handleClaimChange, successMsg } = useFormValidation(formValidation);
 
     return (
         <div>
@@ -91,7 +88,9 @@ const UpdatePage = () => {
                         </div>
                         <div class="div-height"></div>
                         {/* <div><button type="button" class="cancel-button">Cancel</button> */}
-                        <button type="button" class="next-button" onClick={handleFormSubmit}>Next</button>
+                        <button type="button" className="center-block" onClick={handleFormSubmit}>UPDATE</button>
+                        <div class="div-height"></div>
+                        <span class="success">{successMsg}</span>
                         {/* </div> */}
                     </div>
                 </form>

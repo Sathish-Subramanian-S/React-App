@@ -10,6 +10,7 @@ const useFormValidation = (validate) => {
         password: ''
     })
 
+    const [successMsg, setSuccessMsg] = useState('')
 
     const [updatedUserData, setUpdatedUser] = useState({
         claimNumber: '',
@@ -71,7 +72,7 @@ const useFormValidation = (validate) => {
         setErrors(validate(claim));
         if (Object.keys(errors).length === 0) {
             axios.post("http://localhost:8080/api/products", claim);
-            updationFlag = true;
+            setSuccessMsg('Updated Successfully')
         }
     }
 
@@ -90,7 +91,7 @@ const useFormValidation = (validate) => {
             });
     }, []);
 
-    return { handleChange, handleFormSubmit, handleSubmit, errors, userData, claim, handleFormChange, handleClaimChange }
+    return { handleChange, handleFormSubmit, handleSubmit, errors, userData, claim, handleFormChange, handleClaimChange, successMsg }
 };
 
 export default useFormValidation;

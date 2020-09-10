@@ -200,6 +200,14 @@ p {
  color: red;
 }
 
-hr{
+hr {
   text-align: center;
+}
+
+button {
+  margin-left: 28em;
+}
+
+.success {
+  margin-left: 21em;
 }
