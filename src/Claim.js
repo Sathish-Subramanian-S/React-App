@@ -1,60 +1,25 @@
 import React from "react";
-import './Summary.css';
-import UpdatePage from "./UpdatePage";
+import {Link} from "react-router-dom";
 
 const Claim = (props) => {
 
-let {claim} = props;
+   let { claim } = props;
 
-  return (
-    <table>
+   return (
       <tr>
-         <div>
-            <td>
-               <div class="flip-card">
-                  <div class="flip-card-inner">
-                     <header class="flip-card-header">Claim Summary</header>
-                     <div>&nbsp;</div>
-                     <div class="margin-div">
-                        <div class="div-left"><label>Employee Id:</label></div>
-                        <div class="label-value">{claim.empId}</div>
-                     </div>
-                     <div class="margin-div">
-                        <div class="div-left"><label>Employee Name:</label></div>
-                        <div class="label-value">{claim.empName}</div>
-                     </div>
-                     <div class="margin-div">
-                        <div class="div-left"><label>Claim Number:</label></div>
-                        <div class="label-value">{claim.claimNumber}</div>
-                     </div>
-                     <div class="margin-div">
-                        <div class="div-left"><label>Claim Type:</label></div>
-                        <div class="label-value">{claim.claimType}</div>
-                     </div>
-                     <div class="margin-div">
-                        <div class="div-left"><label>Claim Program:</label></div>
-                        <div class="label-value">{claim.claimPrograms}</div>
-                     </div>
-                     <div class="margin-div">
-                        <div class="div-left"><label>Claim Start Date:</label></div>
-                        <div class="label-value">{claim.startDate}</div>
-                     </div>
-                     <div class="margin-div">
-                        <div class="div-left"><label>Claim End Date:</label></div>
-                        <div class="label-value">{claim.endDate}</div>
-                     </div>
-                     <div>&nbsp;</div>
-                     <div>
-                        <div></div>
-                        <div class="div-right"><a href='/updateClaimSummary'>Update Claim Details</a></div>
-                     </div>
-                  </div>
-               </div>
-            </td>
-         </div>
+         <td>{claim.empId}</td>
+         <td>{claim.empName}</td>
+         <td>{claim.claimNumber}</td>
+         <td>{claim.claimType}</td>
+         <td>{claim.claimPrograms}</td>
+         <td>{claim.startDate}</td>
+         <td>{claim.endDate}</td>
+         <td>
+            <Link className="nav-link"  to={`/updateClaimSummary/${claim.empId}`} >
+               <button type="button" className="btn btn-outline-secondary btn-sm" > Edit </button>
+            </Link>
+         </td>
       </tr>
- </table>
-  );
+   );
 };
-
 export default Claim;

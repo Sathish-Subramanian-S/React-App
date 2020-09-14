@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Claim from "./Claim";
-import './claims.css';
+// import {container,table,thead} from  "../node_modules/bootstrap/dist/css/bootstrap.min.css";
+import 'bootstrap/dist/css/bootstrap.min.css'
+import NavBar from "./NavBar";
 
 const ClaimsList = () => {
   const [claims, setClaims] = useState([]);
@@ -16,11 +18,11 @@ const ClaimsList = () => {
       });
   }, []);
 
-  let renderClaims = () => {
+  let renderClaims = () => { 
     return claims.map((claim, idx) => {
-      if (claim.claimNumber != null && claim.empId != null) {
-      return (
-         <Claim key={idx} claim={claim}/>
+      if (claim.claimNumber != null && claim.claimNumber != '') {
+        return (
+          <Claim key={idx} claim={claim} />
         );
       }
     });
@@ -28,26 +30,34 @@ const ClaimsList = () => {
 
   return (
     <div>
-      <body>
-      <table className="table  table-bordered">
-        {/* <thead> */}
-          <tr>
-            <th>ClaimNumber</th>
-            {/* <th>EmployeeId</th> */}
-            {/* <th>EmployeeName</th> */}
-            <th>ClaimType</th>
-            <th>ClaimPrograms</th>
-            {/* <th>StartDate</th>
-            <th>EndDate</th> */}
-          </tr>
-        {/* </thead> */}
-
-        <tbody>
-         {renderClaims()}
-        </tbody>
-       
-      </table>
-      </body>
+    <NavBar/>
+    <div class="div-height"></div>
+    <div className="container container-xl">
+     
+      <div>
+        <div>
+          <form>
+            <table className="table table-striped table-light table-hover table-sm">
+              <thead className="thead-dark">
+                <tr>
+                  <th>EmployeeId</th>
+                  <th>Employee Name</th>
+                  <th>Claim Number</th>
+                  <th>Claim Type</th>
+                  <th>Claim Program</th>
+                  <th>Start Date</th>
+                  <th>End Date</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody>
+                {renderClaims()}
+              </tbody>
+            </table>
+          </form>
+        </div>
+      </div>
+    </div>
     </div>
   );
 };

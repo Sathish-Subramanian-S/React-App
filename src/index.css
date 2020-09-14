@@ -1,4 +1,4 @@
-body {
+/* body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
@@ -6,9 +6,162 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color : rgb(41 149 238 / 16%);
-}
+} */
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+/* 
+body {
+  margin: 0;
+  padding: 0;
+  background-size: cover;
+  font-family: sans-serif;
+  height: 100vh;
+  background-color: #b80f22;
+} */
+
+.login-box {
+  width: 320px;
+  height: 420px;
+  background: #000;
+  color: #fff;
+  top: 50%;
+  left: 50%;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  box-sizing: border-box;
+  padding: 70px 30px;
+}
+
+.login-box .avatar {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  position: absolute;
+  top: -50px;
+  left: calc(50% - 50px);
+}
+
+.login-box h1 {
+  margin: 0;
+  padding: 0 0 20px;
+  text-align: center;
+  font-size: 22px;
+}
+
+.login-box label {
+  margin: 0;
+  padding: 0;
+  font-weight: bold;
+  display: block;
+}
+
+.login-box input {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.login-box input[type="text"], .login-box input[type="password"] {
+  border: none;
+  border-bottom: 1px solid #fff;
+  background: transparent;
+  outline: none;
+  height: 40px;
+  color: #fff;
+  font-size: 16px;
+}
+
+
+.login-box a {
+  text-decoration: none;
+  font-size: 12px;
+  line-height: 20px;
+  color: darkgrey;
+}
+
+.login-box a:hover {
+  color: #fff;
+}
+
+.buttonstyle{
+  text-align: center;
+}
+
+.err-msg {
+ color: red;
+}
+
+.navbar-whitecolor{
+  color: whitesmoke;
+}
+
+.font-header {
+  font-size: x-large;
+}
+	
+.div-height{
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+.update-button {
+  margin-left: 500px;
+}
+
+.text-danger-margin {
+margin-left: 5px;
+}
+
+.flip-card {height:350px;width: 350px;perspective: 1000px;background-color: white;color: black;margin-top: 10px;margin-left: 450px;margin-bottom: 10px;margin-right: 10px;}
+
+.flip-card-inner {
+  position: relative;
+  height: 100%;
+  font-style: normal;
+  font-size: small;
+  margin-left: 15px;
+}
+.flip-card-header {
+  background-color: white;
+  color: black;
+  font-size: 20px;
+  font-weight: 700;
+  text-align: center;
+}
+.flip-card-border {
+  height:200% ;
+  width: 100%;
+  background-color:rgb(41, 149, 238);
+} 
+
+.label-value {
+  color: black;
+  text-align: left;
+  width: 65%;
+  float: right;
+  }
+
+  .div-left {
+    color: black;
+    text-align: left;
+    float: left;
+    width: 35%;    
+    font-size: small;  
+    }
+    .div-right {
+      color: black;
+      text-align: left;
+      float: right;
+      width: 60%;
+      font-size: small;     
+    
+      }
+
+.margin-div {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
 }

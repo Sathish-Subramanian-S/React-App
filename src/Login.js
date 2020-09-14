@@ -2,13 +2,17 @@ import React, { useState } from 'react';
 import './Login.css';
 import useFormValidation from './useFormValidation';
 import validatePwd from './formValidation';
+import NavBar from "./NavBar";
+
 
 const Login = () => {
 
     const { errors, handleSubmit, handleChange, userData } = useFormValidation(validatePwd);
 
     return (
+        
         <div>
+          <NavBar/>
             <head>
                 <title>Metlife Claims</title>
             </head>
@@ -24,10 +28,10 @@ const Login = () => {
                     <label for="password">Password</label>
                     <div>
                         <input type="password" id="password" placeholder="Enter Password" onChange={handleChange} required></input>
-                        <p>{errors.pwdValidateMsg}</p>
+                        <p class='err-msg'>{errors.pwdValidateMsg}</p>
                     </div>
                     <div class="buttonstyle">
-                        <button type="button" onClick={handleSubmit} >Login</button>
+                        <button type="button" class="btn btn-primary" onClick={handleSubmit} >Login</button>
                     </div>
                 </form>
             </div>

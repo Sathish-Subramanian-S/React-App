@@ -1,14 +1,14 @@
 
-body {
+/* body {
   margin: 0;
   padding: 0;
   background-size: cover;
   font-family: sans-serif;
   height: 100vh;
   background-color: #b80f22;
-}
+} */
 
-.login-box {
+/* .login-box {
   width: 320px;
   height: 420px;
   background: #000;
@@ -75,8 +75,8 @@ body {
   text-align: center;
 }
 
-p {
+.err-msg {
  color: red;
 }
 
-	
+	 */

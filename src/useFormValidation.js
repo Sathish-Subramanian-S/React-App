@@ -3,7 +3,7 @@ import formValidation from './formUpdationValidation';
 import axios from "axios";
 import { Router } from 'react-router-dom';
 
-const useFormValidation = (validate) => {
+const useFormValidation = (validate ,empId) => {
 
     const [userData, setUser] = useState({
         userName: '',
@@ -66,32 +66,33 @@ const useFormValidation = (validate) => {
     }
 
     const handleFormSubmit = (e) => {
-        e.preventDefault();
+         e.preventDefault();
         // validations
         let updationFlag = false;
         setErrors(validate(claim));
         if (Object.keys(errors).length === 0) {
             axios.post("http://localhost:8080/api/products", claim);
-            setSuccessMsg('Updated Successfully')
+            window.location.href = '/reviewPage/'+empId;
         }
     }
 
     useEffect(() => {
+        console.log('UseEffect');
         axios
             .get("http://localhost:8080/api/products")
             .then((response) => response.data)
             .then((claims) => {
 
                 setClaims(claims);
-                claims.map((claim, idx) => {
-                    if (claim.claimNumber != null && claim.claimNumber == '123-456-789') {
-                        setClaim(claim);
+                claims.map((claimData) => {
+                    if (claimData.empId == empId) {
+                        setClaim(claimData)
                     }
-                });
+                })
             });
     }, []);
 
-    return { handleChange, handleFormSubmit, handleSubmit, errors, userData, claim, handleFormChange, handleClaimChange, successMsg }
+    return { handleChange, handleFormSubmit, handleSubmit, errors, updatedUserData,userData, claim, handleFormChange, handleClaimChange, successMsg, claims }
 };
 
 export default useFormValidation;
