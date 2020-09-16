@@ -18,7 +18,7 @@ export default function formValidation(userData) {
     if (claimPrgm.length > 20) {
         errors.claimProgramsValidateMsg = "Please enter maximum of 20 digits";
     }
-    if (claimPrgm.length == 0) {
+    if (claimPrgm.length === 0) {
         errors.claimProgramsValidateMsg = "This field is required";
     }
     if (!startDate.match(dateReg)) {

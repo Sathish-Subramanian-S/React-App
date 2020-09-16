@@ -1,27 +1,9 @@
-/* body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  background-color : rgb(41 149 238 / 16%);
-} */
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
 
-/* 
-body {
-  margin: 0;
-  padding: 0;
-  background-size: cover;
-  font-family: sans-serif;
-  height: 100vh;
-  background-color: #b80f22;
-} */
 
 .login-box {
   width: 320px;
@@ -144,21 +126,21 @@ margin-left: 5px;
   float: right;
   }
 
-  .div-left {
-    color: black;
-    text-align: left;
-    float: left;
-    width: 35%;    
-    font-size: small;  
-    }
-    .div-right {
-      color: black;
-      text-align: left;
-      float: right;
-      width: 60%;
-      font-size: small;     
-    
-      }
+.div-left {
+  color: black;
+  text-align: left;
+  float: left;
+  width: 35%;    
+  font-size: small;  
+}
+
+.div-right {
+  color: black;
+  text-align: left;
+  float: right;
+  width: 60%;
+  font-size: small;     
+}
 
 .margin-div {
   display: flex;

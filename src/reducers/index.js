@@ -1,8 +1,8 @@
-// import { combineReducers } from "redux";
-// import claimReducer from './claimReducer';
+import { combineReducers } from "redux";
+import claimReducer from './claimReducer';
 
-// const rootReducer = combineReducers({
-//     claim: claimReducer
-// })
+const rootReducer = combineReducers({
+    claim: claimReducer
+})
 
-// export default rootReducer;
+export default rootReducer;

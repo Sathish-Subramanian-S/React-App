@@ -1,4 +1,4 @@
-import React, { Component, useState, useEffect } from 'react';
+import React, {  useState, useEffect } from 'react';
 import './Summary.css';
 import axios from "axios";
 import Claim from "./Claim";
@@ -19,7 +19,7 @@ const Summary = () => {
 
   let renderClaims = () => {
     return claims.map((claim, idx) => {
-      if (claim.claimNumber != null && claim.claimNumber == '123-456-789') {
+      if (claim.claimNumber != null && claim.claimNumber === '123-456-789') {
         return (
           <Claim key={idx} claim={claim} />
         );

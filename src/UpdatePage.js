@@ -1,10 +1,7 @@
 import React, { Component, useState, useEffect } from 'react';
-// import './Summary.css';
 import useFormValidation from './useFormValidation';
 import formValidation from './formUpdationValidation';
-// import 'bootstrap/dist/css/bootstrap.min.css'
-import { useSelector, useDispatch } from 'react-redux'
-import axios from "axios";
+import {  useDispatch } from 'react-redux'
 
 import NavBar from "./NavBar";
 import { Link } from "react-router-dom";

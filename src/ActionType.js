@@ -1,9 +1,9 @@
-// const changeEvent = () => {
-//     return {
-//         type: "EDIT_CLAIM_DATA"
-//     }
-// }
+const changeEvent = () => {
+    return {
+        type: "EDIT_CLAIM_DATA"
+    }
+}
 
-// export default {
-//      changeEvent
-// }
+export default {
+    changeEvent
+}

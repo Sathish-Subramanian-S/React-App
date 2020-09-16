@@ -1,22 +1,16 @@
-import React, { useState } from 'react';
-import './Login.css';
+import React from 'react';
 import useFormValidation from './useFormValidation';
 import validatePwd from './formValidation';
 import NavBar from "./NavBar";
 
-
 const Login = () => {
 
-    const { errors, handleSubmit, handleChange, userData } = useFormValidation(validatePwd);
+    const { errors, handleSubmit, handleChange } = useFormValidation(validatePwd);
 
     return (
-        
-        <div>
-          <NavBar/>
-            <head>
-                <title>Metlife Claims</title>
-            </head>
 
+        <div>
+            <NavBar />
             <div class="login-box">
                 <h1>Login</h1>
                 <form>

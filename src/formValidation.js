@@ -7,7 +7,7 @@ export default function validatePwd(userData) {
     let userName = 'sathish';
     let pwd = '1234567';
     let flag = true;
-    
+
     if (name == null) {
         errors.userNameValidateMsg = "Username cannot be empty";
         flag = false;
@@ -31,7 +31,7 @@ export default function validatePwd(userData) {
         flag = false;
     }
     if (flag) {
-        window.location.href = "/summary";//router navigation
+        window.location.href = "/summary";
     }
     return errors;
 }

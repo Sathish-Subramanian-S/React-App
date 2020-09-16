@@ -18,7 +18,6 @@ class Navbar extends Component {
                     <ul className="navbar-nav ml-auto list-unstyled">
                         <li className="nav-item active">
                             <span class="glyphicon glyphicon-user"></span><label>Help</label>
-                            {/* <div><a href="/">Profile</a></div> */}
                         </li>
                     </ul>
                 </nav>
