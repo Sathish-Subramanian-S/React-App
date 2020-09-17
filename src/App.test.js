@@ -15,3 +15,7 @@ it("renders login",()=>{
   const div=document.createElement("div");
   ReactDOM.render(<Login></Login>,div);
 })
+
+it("renders App in test",()=>{
+  render(<App />);
+})
