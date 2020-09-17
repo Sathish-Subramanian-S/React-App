@@ -12,7 +12,6 @@ const Summary = () => {
       .get("http://localhost:8080/api/products")
       .then((response) => response.data)
       .then((claims) => {
-        console.log(claims);
         setClaims(claims);
       });
   }, []);

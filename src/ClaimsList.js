@@ -13,7 +13,6 @@ const ClaimsList = () => {
       .get("http://localhost:8080/api/products")
       .then((response) => response.data)
       .then((claims) => {
-        console.log(claims);
         setClaims(claims);
       });
   }, []);
@@ -32,7 +31,7 @@ const ClaimsList = () => {
   return (
     <div>
       <NavBar />
-      <div class="div-height"></div>
+      <div className="div-height"></div>
       <div className="container container-xl">
 
         <div>

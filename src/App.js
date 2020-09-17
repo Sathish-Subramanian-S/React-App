@@ -10,7 +10,7 @@ import { Route, BrowserRouter as Router } from 'react-router-dom';
 function App() {
   return (
     <div>
-      <Router basename={process.env.PUBLIC_URL}>
+      <Router>
         <Route path="/" component={Login} exact />
         <Route path="/summary" component={ClaimsList} />
         <Route path="/updateClaimSummary/:empId" component={UpdatePage} />

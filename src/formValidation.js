@@ -31,6 +31,7 @@ export default function validatePwd(userData) {
         flag = false;
     }
     if (flag) {
+        // eslint-disable-next-line no-undef
         window.location.href = "/summary";
     }
     return errors;

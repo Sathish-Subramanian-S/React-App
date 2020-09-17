@@ -11,21 +11,21 @@ const Login = () => {
 
         <div>
             <NavBar />
-            <div class="login-box">
+            <div className="login-box">
                 <h1>Login</h1>
                 <form>
-                    <label for="username">Username</label>
+                    <label htmlFor="username">Username</label>
                     <div>
                         <input type="text" id="userName" placeholder="Enter Username" onChange={handleChange} required></input>
                         <p>{errors.userNameValidateMsg}</p>
                     </div>
-                    <label for="password">Password</label>
+                    <label htmlFor="password">Password</label>
                     <div>
                         <input type="password" id="password" placeholder="Enter Password" onChange={handleChange} required></input>
-                        <p class='err-msg'>{errors.pwdValidateMsg}</p>
+                        <p className='err-msg'>{errors.pwdValidateMsg}</p>
                     </div>
-                    <div class="buttonstyle">
-                        <button type="button" class="btn btn-primary" onClick={handleSubmit} >Login</button>
+                    <div className="buttonstyle">
+                        <button type="button" className="btn btn-primary" onClick={handleSubmit} >Login</button>
                     </div>
                 </form>
             </div>

@@ -1,8 +1,10 @@
+/* eslint-disable react/prop-types */
 import React from "react";
 import { Link } from "react-router-dom";
 
 const Claim = (props) => {
 
+   // eslint-disable-next-line react/prop-types
    let { claim } = props;
 
    return (

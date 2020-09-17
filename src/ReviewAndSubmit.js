@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 
 import React, { useState, useEffect } from 'react';
 import NavBar from "./NavBar";
@@ -16,12 +17,13 @@ const Claim = (props) => {
 
             claims.map((claimData) => {
                let path = props.location.pathname;
-               console.log(path.substring(7, path.length))
+               // eslint-disable-next-line react/prop-types
                if (claimData.empId === path.substring(12, path.length)) {
                   setClaim(claimData)
                }
+               return '';
             })
-            return '';
+           
          });
    }, []);
 
@@ -32,37 +34,37 @@ const Claim = (props) => {
             <tr>
                <div>
                   <td>
-                     <div class="flip-card">
-                        <div class="flip-card-inner">
-                           <header class="flip-card-header">Claim Summary</header>
+                     <div className="flip-card">
+                        <div className="flip-card-inner">
+                           <header className="flip-card-header">Claim Summary</header>
                            <div>&nbsp;</div>
-                           <div class="margin-div">
-                              <div class="div-left"><label>Employee Id:</label></div>
-                              <div class="label-value">{claim.empId}</div>
+                           <div className="margin-div">
+                              <div className="div-left"><label>Employee Id:</label></div>
+                              <div className="label-value">{claim.empId}</div>
                            </div>
-                           <div class="margin-div">
-                              <div class="div-left"><label>Employee Name:</label></div>
-                              <div class="label-value">{claim.empName}</div>
+                           <div className="margin-div">
+                              <div className="div-left"><label>Employee Name:</label></div>
+                              <div className="label-value">{claim.empName}</div>
                            </div>
-                           <div class="margin-div">
-                              <div class="div-left"><label>Claim Number:</label></div>
-                              <div class="label-value">{claim.claimNumber}</div>
+                           <div className="margin-div">
+                              <div className="div-left"><label>Claim Number:</label></div>
+                              <div className="label-value">{claim.claimNumber}</div>
                            </div>
-                           <div class="margin-div">
-                              <div class="div-left"><label>Claim Type:</label></div>
-                              <div class="label-value">{claim.claimType}</div>
+                           <div className="margin-div">
+                              <div className="div-left"><label>Claim Type:</label></div>
+                              <div className="label-value">{claim.claimType}</div>
                            </div>
-                           <div class="margin-div">
-                              <div class="div-left"><label>Claim Program:</label></div>
-                              <div class="label-value">{claim.claimPrograms}</div>
+                           <div className="margin-div">
+                              <div className="div-left"><label>Claim Program:</label></div>
+                              <div className="label-value">{claim.claimPrograms}</div>
                            </div>
-                           <div class="margin-div">
-                              <div class="div-left"><label>Claim Start Date:</label></div>
-                              <div class="label-value">{claim.startDate}</div>
+                           <div className="margin-div">
+                              <div className="div-left"><label>Claim Start Date:</label></div>
+                              <div className="label-value">{claim.startDate}</div>
                            </div>
-                           <div class="margin-div">
-                              <div class="div-left"><label>Claim End Date:</label></div>
-                              <div class="label-value">{claim.endDate}</div>
+                           <div className="margin-div">
+                              <div className="div-left"><label>Claim End Date:</label></div>
+                              <div className="label-value">{claim.endDate}</div>
                            </div>
                            <div>&nbsp;</div>
                            <div>

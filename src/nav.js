@@ -14,7 +14,7 @@ class Navbar extends Component {
               <label>LOGIN</label>
             </li>
           </ul>
-          <div class="text-center"><label>LOGIN</label>
+          <div className="text-center"><label>LOGIN</label>
           </div>
           <ul className="navbar-nav ml-auto list-unstyled">
             <li className="nav-item active">

@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from 'react';
-import formValidation from './formUpdationValidation';
+// import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
+// import formValidation from './formUpdationValidation';
 import axios from "axios";
-import { Router } from 'react-router-dom';
+// import { Router } from 'react-router-dom';
 
 const useFormValidation = (validate ,empId) => {
 
@@ -9,8 +10,6 @@ const useFormValidation = (validate ,empId) => {
         userName: '',
         password: ''
     })
-
-    const [successMsg, setSuccessMsg] = useState('')
 
     const [updatedUserData, setUpdatedUser] = useState({
         claimNumber: '',
@@ -22,7 +21,6 @@ const useFormValidation = (validate ,empId) => {
         empId: ''
     })
 
-    const [isSubmited, setIsSubmitted] = useState(false);
     const [errors, setErrors] = useState({});
     const [claims, setClaims] = useState([]);
     const [claim, setClaim] = useState({
@@ -34,7 +32,6 @@ const useFormValidation = (validate ,empId) => {
         empName: '',
         empId: ''
     });
-    const [formErrors, setFormErrors] = useState({});
 
     const handleChange = (e) => {
         const { id, value } = e.target;
@@ -68,16 +65,15 @@ const useFormValidation = (validate ,empId) => {
     const handleFormSubmit = (e) => {
          e.preventDefault();
         // validations
-        let updationFlag = false;
         setErrors(validate(claim));
         if (Object.keys(errors).length === 0) {
             axios.post("http://localhost:8080/api/products", claim);
+            // eslint-disable-next-line no-undef
             window.location.href = '/reviewPage/'+empId;
         }
     }
 
     useEffect(() => {
-        console.log('UseEffect');
         axios
             .get("http://localhost:8080/api/products")
             .then((response) => response.data)
@@ -85,14 +81,15 @@ const useFormValidation = (validate ,empId) => {
 
                 setClaims(claims);
                 claims.map((claimData) => {
-                    if (claimData.empId == empId) {
+                    if (claimData.empId === empId) {
                         setClaim(claimData)
                     }
+                    return '';
                 })
             });
     }, []);
 
-    return { handleChange, handleFormSubmit, handleSubmit, errors, updatedUserData,userData, claim, handleFormChange, handleClaimChange, successMsg, claims }
+    return { handleChange, handleFormSubmit, handleSubmit, errors, updatedUserData,userData, claim, handleFormChange, handleClaimChange, claims }
 };
 
 export default useFormValidation;
