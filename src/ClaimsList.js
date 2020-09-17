@@ -37,7 +37,7 @@ const ClaimsList = () => {
         <div>
           <div>
             <form>
-              <table className="table table-striped table-light table-hover table-sm">
+              <table className="table table-light table-striped table-hover table-sm">
                 <thead className="thead-dark">
                   <tr>
                     <th>EmployeeId</th>
